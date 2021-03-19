@@ -1,0 +1,10 @@
+with knn=10 n, 0.3822147571048383
+with knn=10 n, 0.3768
+
+drop day year cpi,
+next, drop pre 2011 ontop of that
+
+DECISION tree,
+drop Year, day
+
+dropping year and day make a difference since weeks matter more
