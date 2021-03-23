@@ -9,6 +9,8 @@ from sklearn.metrics import mean_squared_error
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.model_selection import train_test_split
+from sklearn import datasets
+from sklearn import tree
 
 """
 Author: Muhammad Salman, 100995527
@@ -41,7 +43,14 @@ dtree_test.fit(x_train,weekly_sales_train)
 #Predict weekly_sales based off sample random test data
 #Ideally should be a straight line
 predicted_sales = dtree_test.predict(x_test)
-print("Score " +str(dtree_test.score(x_test, weekly_sales_test)))
+# text = tree.export_text(dtree_test)
+# print(text)
+
+fig = plt.figure(figsize=(25,20))
+tree.plot_tree(dtree_test, filled=True)
+plt.show()
+"""
+print("\n\nScore " +str(dtree_test.score(x_test, weekly_sales_test)))
 print("MAE " + str(mean_absolute_error(weekly_sales_test, predicted_sales)))
 print("MSE " +str(mean_squared_error(weekly_sales_test, predicted_sales)))
 print("RMSE " + str(numpy.sqrt(mean_squared_error(weekly_sales_test, predicted_sales))))
@@ -52,4 +61,5 @@ ax=seaborn.scatterplot(weekly_sales_test, predicted_sales)
 ax.set(xlabel='Weekly Sales From Data', ylabel='Predicted Sales')
 plt.grid()
 plt.show()
+"""
 
