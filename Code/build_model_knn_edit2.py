@@ -42,9 +42,13 @@ knn_test.fit(x_train,weekly_sales_train)
 #Ideally should be a straight line
 predicted_sales = knn_test.predict(x_test)
 print("Score: " +str(knn_test.score(x_test, weekly_sales_test)))
-print("MAE: " + str(mean_absolute_error(weekly_sales_test, predicted_sales)))
-print("MSE: " +str(mean_squared_error(weekly_sales_test, predicted_sales)))
-print("RMSE: " + str(numpy.sqrt(mean_squared_error(weekly_sales_test, predicted_sales))))
+
+print("MAE: " + str(mean_absolute_error\
+(weekly_sales_test,\predicted_sales)))
+print("MSE: " +str(mean_squared_error\
+(weekly_sales_test, predicted_sales)))
+print("RMSE: " + str(numpy.sqrt(mean_squared_error\
+(weekly_sales_test, predicted_sales))))
 
 #plt.scatter(weekly_sales_test, predicted_sales)
 #ax.set(xlabel='Weekly Sales From Data', ylabel='Predicted Sales')

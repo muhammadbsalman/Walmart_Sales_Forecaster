@@ -18,7 +18,7 @@ stores  = pandas.read_csv("stores.csv")
 #Some values maybe NA depending on stores
 #Clean up data
 
-#For unavaialble markdowns, fill with 0
+#For unavailable markdowns, fill with 0
 features['Markdown1'] = features["MarkDown1"].fillna(0)
 features['Markdown2'] = features['MarkDown2'].fillna(0)
 features['Markdown3'] = features['MarkDown3'].fillna(0)
@@ -49,7 +49,6 @@ main['Date'] = pandas.to_datetime(main['Date'])
 main['Week'] = main['Date'].dt.isocalendar().week
 main['Year'] = main['Date'].dt.isocalendar().year
 main['Day'] = main['Date'].dt.isocalendar().day
-#main['Days-Chrtms'] = 359 - int(main['Date'])
 main=main.drop(["Date"], axis=1)
 
 #Transform Type ABC into 1,2,3, respectively

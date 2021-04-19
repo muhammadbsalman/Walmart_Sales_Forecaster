@@ -24,16 +24,19 @@ x_train = x_train.drop(['Unnamed: 0'], axis=1)
 x_train = x_train.drop(['Day'], axis=1)
 x_train = x_train.drop(['Year'], axis=1)
 #x_train = x_train.drop(['CPI'], axis=1)
-x_train.drop(x_train.loc[x_train['Year']<2011].index, inplace=True)
+x_train.drop(x_train.loc[x_train['Year']<2011].index,\
+inplace=True)
 
 weekly_sales_train = x_train['Weekly_Sales']
 x_train = x_train.drop(['Weekly_Sales'], axis=1)
-#Split data into train/test, let test be 20% of total data imported from main dataframe
-x_train,x_test,weekly_sales_train,weekly_sales_test=train_test_split( x_train, weekly_sales_train, test_size=0.20, random_state=0)
+
+#Split data into train/test
+x_train,x_test,weekly_sales_train,weekly_sales_test=\
+train_test_split( x_train, weekly_sales_train,\ 
+test_size=0.20, random_state=0)
 
 
 #Using KNN Regression Model
-#y values represent weekly sales, while x contains a series of independant variables
 knn_test = KNeighborsRegressor(n_neighbors=15, n_jobs=4)
 
 #Fit training values to generate model
